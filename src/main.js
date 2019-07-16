@@ -23,7 +23,7 @@ const store = new Vuex.Store({
   },
   getters : {
     getCountText(state) {
-      return `Hello, ${state.counter}`
+      return `You are on state number : ${state.counter}`
     }
   }
 });
