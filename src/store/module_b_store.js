@@ -1,4 +1,4 @@
-export const ModuleA = {
+export const ModuleB = {
   namespaced: true,
   state: {
     counter: 100
