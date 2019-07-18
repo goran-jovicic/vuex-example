@@ -6,12 +6,12 @@
     </div>
     <router-view />
     <h2>{{ counter }}</h2>
-    <button @click="incrementState">Increment</button>
+    <button @click="increment">Increment</button>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
   export default {
     computed : {
@@ -19,16 +19,19 @@ import { mapGetters } from 'vuex'
         counter : 'getCountText'
       }),
       // counter() {
-      //   // return this.$store.state.counter;      // novi nacin
+      //   // return this.$store.state.counter;      // stari nacin
       //   return this.$store.getters.getCountText
       // }
     },
 
     methods : {
-      incrementState() {
-        // this.$store.commit('increment')
-        this.$store.dispatch('incrementAfterTwoSeconds')
-      }
+      ...mapActions ({
+        increment : 'incrementAfterTwoSeconds'
+      })
+      // incrementState() {
+      //   // this.$store.commit('increment')
+      //   this.$store.dispatch('incrementAfterTwoSeconds') // stari nacin
+      // }
     }
   }
 </script>
